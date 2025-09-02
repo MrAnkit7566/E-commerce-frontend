@@ -31,9 +31,14 @@ const Login = ({ closeModal, openSignupModal }) => {
   return (
     <div className="auth-modal-overlay">
       <div className="auth-modal-content">
-        <span className="auth-close-button" onClick={closeModal}>
+        <button
+          type="button"
+          className="auth-close-button"
+          onClick={closeModal}
+          aria-label="Close Modal"
+        >
           &times;
-        </span>
+        </button>
         <h2 >Login User</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -54,7 +59,7 @@ const Login = ({ closeModal, openSignupModal }) => {
           />
           <button className="btn btn-dark w-100" type="submit">Login</button>
         </form>
-
+        <br />
         <p className="auth-switch-text">
           Don't have an account?{" "}
           <span

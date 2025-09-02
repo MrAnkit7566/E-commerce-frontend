@@ -14,9 +14,11 @@ const SignupModal = ({ closeModal, openLoginModal }) => {
     gender: "",
     age: "",
   });
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -30,8 +32,8 @@ const SignupModal = ({ closeModal, openLoginModal }) => {
   };
 
   return (
-    <div className="auth-modal-overlay ">
-      <div className="auth-modal-content card w-25 ">
+    <div className="auth-modal-overlay">
+      <div className="auth-modal-content">
         <span className="auth-close-button" onClick={closeModal}>
           &times;
         </span>
@@ -77,12 +79,19 @@ const SignupModal = ({ closeModal, openLoginModal }) => {
             value={formData.address}
             onChange={handleChange}
           />
-          <select name="gender" className="form-select" value={formData.gender} onChange={handleChange}>
-            <option selected="">Select Gender</option>
+          
+          <select
+            name="gender"
+            className="form-select"
+            value={formData.gender}
+            onChange={handleChange}
+          >
+            <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="others">Others</option>
-          </select><br />
+          </select>
+        
           <input
             type="number"
             name="age"
@@ -91,12 +100,15 @@ const SignupModal = ({ closeModal, openLoginModal }) => {
             className="form-control"
             onChange={handleChange}
           />
-          <button className="btn btn-dark w-100" type="submit">Signup</button>
+          <button className="btn btn-dark w-100" type="submit">
+            Signup
+          </button>
         </form>
-
+        <br />
         <p className="auth-switch-text">
           Already have an account?{" "}
           <span
+          style={{ color: "blue", cursor: "pointer" }}
             onClick={() => {
               closeModal();
               openLoginModal();
